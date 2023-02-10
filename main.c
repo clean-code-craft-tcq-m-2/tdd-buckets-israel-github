@@ -6,6 +6,7 @@
  char* header = "Range, Readings";
 char outputLine[20];
 
+// ToDo: Reduce complexity if possible! (Maybe sort data beforehand for simpler handling, but sorting algorithm must not be too complex, too.)
 void DetectRange(int inputVals[],  int inputSize)
 {
 	int i = 0;
