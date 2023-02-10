@@ -3,16 +3,16 @@
 #include <string.h>
 #include "main.h"
 
-const char* header = "Range, Readings";
+ char* header = "Range, Readings";
 char outputLine[20];
 
-void DetectRange(int inputVals[], const uint32_t inputSize)
+void DetectRange(int inputVals[],  int inputSize)
 {
 	int i = 0;
-	uint32_t min;
+	int min;
 	int max = -2;
-	uint32_t rangeReadings = 0;
-	uint32_t readingsAccu = 0;
+	int rangeReadings = 0;
+	int readingsAccu = 0;
 
 	// [2,5,4,8,12,6,7,10,13]
 	// [2,4,5,6,7,8,10,12,13]
@@ -61,10 +61,10 @@ void DetectRange(int inputVals[], const uint32_t inputSize)
 	}
 }
 
-uint32_t CountReadingsInRange(int inputVals[], const uint32_t inputSize, const uint32_t min, const int max)
+int CountReadingsInRange(int inputVals[],  int inputSize,  int min,  int max)
 {
 	int i = 0;
-	uint32_t count = 0;
+	int count = 0;
 
 	for (i = 0; i < inputSize; i++)
 	{
@@ -77,7 +77,7 @@ uint32_t CountReadingsInRange(int inputVals[], const uint32_t inputSize, const u
 	return count;
 }
 
-void FormatRangeLine(const uint32_t min, const int max, const uint32_t count)
+void FormatRangeLine( int min,  int max,  int count)
 {
 	if (min == max)
 	{
@@ -98,11 +98,11 @@ void PassTest(int inputVals[], int inputSize)
 
 int main(void)
 {
-	uint32_t simpleInputs[2] = {4, 5};
-	uint32_t simpleInputSize = sizeof(simpleInputs)/sizeof(simpleInputs[0]);
+	int simpleInputs[2] = {4, 5};
+	int simpleInputSize = sizeof(simpleInputs)/sizeof(simpleInputs[0]);
 
-	uint32_t testInputs[9] = {2,5,4,8,12,6,7,10,13};
-	uint32_t testInputSize = sizeof(testInputs)/sizeof(testInputs[0]);
+	int testInputs[9] = {2,5,4,8,12,6,7,10,13};
+	int testInputSize = sizeof(testInputs)/sizeof(testInputs[0]);
 
 	// PassTest(inputs, inputSize);
 	// assert(strcmp(outputLine, "4-5, 2") == 0);
